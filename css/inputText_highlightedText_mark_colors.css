@@ -1,0 +1,109 @@
+
+/* cores para mark.js  */
+  section[style*="position: relative;"] {
+    position: relative;
+  }
+
+  #inputText {
+    position: relative;
+    z-index: 1;
+    background: transparent;
+    color: transparent;
+    caret-color: #000000;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 2px solid #2980b9;
+    box-sizing: border-box;
+    resize: none;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+  }
+
+  #highlightedText {
+    pointer-events: none;
+    position: absolute;
+    top: 0px;
+    right:  0px;
+    width: calc(100% - 0px);
+    height: calc(100% - 2px);
+    z-index: 1;
+    /*background: #fafafa;*/
+    background: #b6b6b627;
+    color: black;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 2px solid #b9872900;
+    box-sizing: border-box;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+  }
+  #inputText,
+  #highlightedText {
+    max-height: 190vh;
+    overflow-y: auto;
+    padding: 1rem;
+    min-width: 45vw;
+  }
+  
+
+  #highlightedText:empty::before {
+    content: "Type normal text and LaTeX code here... Example: Euler's formula: $e^{i\\pi} + 1 = 0$";
+    color: #aaaaaa;          /* cor do placeholder */
+    pointer-events: none;
+  }
+
+
+    .green-display {
+    color: #42a5f5; /* azul mais claro */
+  }
+
+  .green-inline {
+    color: #81d4fa; /* azul ainda mais claro */
+  }
+
+  .orange-char {
+    color: #ffa726; /* laranja claro vivo */
+  }
+
+  .dark-orange-char {
+    color: #ef2400; /* laranja queimado, um pouco escuro, mas perceptível */
+  }
+
+
+  /* Classes para as cores via mark.js */
+  mark.green-inline {
+    color: #47c5ff;
+    background: transparent;
+  }
+
+  mark.green-display {
+    color: #3793fc;
+    background: transparent;
+  }
+
+  mark.orange-char {
+    color: orange !important;
+    background: transparent;
+  }
+
+  mark.dark-orange-char {
+    color: #ff6702 !important;
+    font-weight: normal;
+    background: transparent;
+  }
+  mark.red-comment {
+    color: rgb(224, 0, 0);
+    background: transparent;
+    opacity: 0.9;
+  }
+  mark.math-operator {
+    color: rgb(230, 39, 39);
+    background: transparent;
+    opacity: 0.9;
+  }

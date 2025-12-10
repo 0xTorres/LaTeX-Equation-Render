@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text with LaTeX Equation Renderer</title>
+    <link rel="stylesheet" href="./css/header_main_body_footer_section_renderedOutput_botomButtons.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+    .heart, .heart2 {
+      fill: red;
+      position: fixed;
+      top: 60px;         /* distance from top */
+      left: 50%;          /* center horizontally */
+      width: 50px;
+      transform: translateX(-50%);  /* center by moving half width back */
+      pointer-events: none;
+      z-index: 1001;
+    }
+
+    .heart {
+      animation: pulse 1s ease 3, hideHeart 0.7s linear 3s forwards;
+    }
+
+    .heart2 {
+      animation: pulse2 1s linear 3;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes pulse {
+      0% { transform: translateX(-50%) scale(1); }
+      50% { transform: translateX(-50%) scale(1.3); }
+      100% { transform: translateX(-50%) scale(1); }
+    }
+
+    @keyframes pulse2 {
+      46% { transform: translateX(-50%) scale(1); }
+      50% { transform: translateX(-50%) scale(1.3); }
+      52% { transform: translateX(-50%) scale(1.5); }
+      55% { transform: translateX(-50%) scale(3); }
+      100% { opacity: 0; transform: translateX(-50%) scale(30); }
+    }
+
+    @keyframes hideHeart {
+      0% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(-50%) scale(0);
+      }
+    }
+    </style>
+
+<svg class="heart" viewBox="0 0 32 29.6">
+  <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
+  c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
+</svg> 
+<svg class="heart2" viewBox="0 0 32 29.6">
+  <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
+  c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
+</svg> 
+
+<!-- testa se é dispositivo móvel e redireciona para a pagina aviso-movel.html --> 
+<script>
+function isMobileDevice() {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(navigator.userAgent);
+}
+
+if (isMobileDevice()) {
+  //alert("Este site não está disponível em dispositivos móveis.");
+  // Redirecionar para a página principal:
+  window.location.href = "aviso-movel.html";
+}
+</script>
+<!-- ========================================================================== --> 
+
+
+
+<link rel="stylesheet" href="./css/inputText_highlightedText_mark_colors.css">
+<link rel="stylesheet" href="./css/buttons_for_rgb_selection.css">
+<link rel="stylesheet" href="./css/textbox.css">
+<link rel="stylesheet" href="./css/boxes_header.css">
+<link rel="stylesheet" href="./css/EndTutorial.css">
+
+ <!-- funcoes End tutorial ================================================================================================= -->
+ <script src="./js/End_Tutorial.js"></script>
+
+</head>
+
+
+<body>
+
+<header>
+
+    <div class="container-horizontal">
+
+      <div class="container-linhas2">
+        <div class="linha2-1">
+          <div class="caixa-svg" style="width:230px; border:1px solid #ccc; padding:10px; text-align:center; background:#fafafa;
+              display:grid; grid-template-columns: repeat(2, 1fr); gap: 10px; justify-items: center;">
+              <img src="fonts/Text/Text Boldface.svg" class="svg-principal svg-btn" width="90" alt="Bold">
+              <img src="fonts/Text/Text Italics.svg" class="svg-principal svg-btn" width="90" alt="Italics">
+              <img src="fonts/Text/Text Roman.svg" class="svg-resto svg-btn" width="90" alt="Roman">
+              <img src="fonts/Text/Text Sans-Serif.svg" class="svg-resto svg-btn" width="90" alt="Sans-Serif">
+              <img src="fonts/Text/Text Typewriter.svg" class="svg-resto svg-btn" width="90" alt="Typewriter">
+              <img src="fonts/Text/Text Upwright.svg" class="svg-resto svg-btn" width="90" alt="Upright">
+              <img src="fonts/Math/Blackboard Bold.svg" class="svg-resto svg-btn" width="90" alt="Blackboard Bold">
+              <img src="fonts/Math/Bold Face.svg" class="svg-resto svg-btn" width="90" alt="Bold Face">
+              <img src="fonts/Math/Boldface Italics.svg" class="svg-resto svg-btn" width="90" alt="Boldface Italics">
+              <img src="fonts/Math/Calligraphic.svg" class="svg-resto svg-btn" width="90" alt="Calligraphic">
+              <img src="fonts/Math/Fraktur.svg" class="svg-resto svg-btn" width="90" alt="Fraktur">
+              <img src="fonts/Math/Italics.svg" class="svg-resto svg-btn" width="90" alt="Math Italics">
+              <img src="fonts/Math/Roman.svg" class="svg-resto svg-btn" width="90" alt="Math Roman">
+              <img src="fonts/Math/Sans-Serif.svg" class="svg-resto svg-btn" width="90" alt="Math Sans-Serif">
+              <img src="fonts/Math/Script.svg" class="svg-resto svg-btn" width="90" alt="Script">
+              <img src="fonts/Math/Typewriter.svg" class="svg-resto svg-btn" width="90" alt="Math Typewriter">
+          </div>
+        </div>
+        <div class="linha2-2">
+          <div class="dropdown-container">
+            <!-- First row: Only R, G, B -->
+            <div class="color-panel">
+              <div class="color-box red" onclick="insertRGBFromColorBox(this)" ></div>
+              <div class="color-box green" onclick="insertRGBFromColorBox(this)" ></div>
+              <div class="color-box blue" onclick="insertRGBFromColorBox(this)" ></div>
+            </div>
+            <!-- Dropdown with the rest of the colors -->
+            <div class="dropdown-panel">
+              <div class="color-box darkred" onclick="insertRGBFromColorBox(this)" ></div>
+              <div class="color-box darkgreen" onclick="insertRGBFromColorBox(this)" ></div>
+              <div class="color-box darkblue" onclick="insertRGBFromColorBox(this)" ></div>
+              <div class="color-box yellow" onclick="insertRGBFromColorBox(this)" ></div>
+              <div class="color-box cyan" onclick="insertRGBFromColorBox(this)" ></div>
+              <div class="color-box magenta" onclick="insertRGBFromColorBox(this)" ></div>
+              <div class="color-box brown" onclick="insertRGBFromColorBox(this)" ></div>
+              <div class="color-box teal" onclick="insertRGBFromColorBox(this)" ></div>
+              <div class="color-box purple" onclick="insertRGBFromColorBox(this)" ></div>
+              <div class="color-box orange" onclick="insertRGBFromColorBox(this)" ></div>
+              <div class="color-box emerald" onclick="insertRGBFromColorBox(this)" ></div>
+              <div class="color-box orchid" onclick="insertRGBFromColorBox(this)" ></div>
+              <div class="color-box darkorange" onclick="insertRGBFromColorBox(this)" ></div>
+              <div class="color-box golden" onclick="insertRGBFromColorBox(this)" ></div>
+              <div class="color-box pink" onclick="insertRGBFromColorBox(this)" ></div>
+            </div>
+          </div>
+          <div class="caixa-space" style="width:24px; border:1px solid #ccc; padding:5px; text-align:center; background:#fafafa;
+                  display:grid; grid-template-columns: repeat(1, 1fr); gap: 10px; justify-items: center;">
+            <img src="svg/spaces/equacao_1__square_____square.svg" class="space-principal svg-btn" width="21" alt="Space 1">
+            <img src="svg/spaces/equacao_2__square_____square.svg" class="space-resto svg-btn" width="21" alt="Space 2">
+            <img src="svg/spaces/equacao_3__square_____square.svg" class="space-resto svg-btn" width="22" alt="Space 3">
+            <img src="svg/spaces/equacao_4__square_____square.svg" class="space-resto svg-btn" width="22" alt="Space 4">
+          </div>
+          <div class="caixa-symb7" style="width:60px; border:1px solid #ccc; padding:5px; text-align:center; background:#fafafa; 
+                  display:grid; grid-template-columns: repeat(2, 1fr); gap: 5px; justify-items: center;">
+            <img src="svg/symb7/equacao_1__widetilde_ijk_.svg" class="s7-principal svg-btn" width="24" alt="Symb7 1">
+            <img src="svg/symb7/equacao_2__widehat_ijk_.svg" class="s7-principal svg-btn" width="24" alt="Symb7 2">
+            <img src="svg/symb7/equacao_3__overbrace_ijk_.svg" class="s7-resto svg-btn" width="24" alt="Symb7 3">
+            <img src="svg/symb7/equacao_4__overbrace_ijk___a_.svg" class="s7-resto svg-btn" width="24" alt="Symb7 4">
+            <img src="svg/symb7/equacao_5__underbrace_ijk_.svg" class="s7-resto svg-btn" width="24" alt="Symb7 5">
+            <img src="svg/symb7/equacao_6__underbrace_ijk___a_.svg" class="s7-resto svg-btn" width="24" alt="Symb7 6">
+            <img src="svg/symb7/equacao_7__overrightarrow_ijk_.svg" class="s7-resto svg-btn" width="24" alt="Symb7 7">
+            <img src="svg/symb7/equacao_8__overset_a__ijk_.svg" class="s7-resto svg-btn" width="24" alt="Symb7 8">
+            <img src="svg/symb7/equacao_9__overleftarrow_ijk_.svg" class="s7-resto svg-btn" width="24" alt="Symb7 9">
+            <img src="svg/symb7/equacao_10__underset_a__ijk_.svg" class="s7-resto svg-btn" width="24" alt="Symb7 10">
+            <img src="svg/symb7/equacao_11__overline_ijk_.svg" class="s7-resto svg-btn" width="24" alt="Symb7 11">
+            <img src="svg/symb7/equacao_12__underline_ijk_.svg" class="s7-resto svg-btn" width="24" alt="Symb7 12">
+            </div>
+              
+        </div>
+      </div>
+
+
+      <div class="vertical-line1 "></div>
+
+      <div class="container-linhas">
+        <div class="linha-1">
+          <div class="caixa-eq" style="width:244px; border:1px solid #ccc; padding:10px; text-align:center; background:#fafafa; 
+                  display:grid; grid-template-columns: repeat(6, 1fr); gap: 10px; justify-items: center;">
+            <img src="svg/equations/equacao/equacao_1_x__a_.svg" class="eq-principal svg-btn" width="22" alt="Eq 1">
+            <img src="svg/equations/equacao/equacao_2__frac_a__b_.svg" class="eq-principal svg-btn" width="22" alt="Eq 2">
+            <img src="svg/equations/equacao/equacao_3__bigcap.svg" class="eq-principal svg-btn" width="22" alt="Eq 3">
+            <img src="svg/equations/equacao/equacao_4__sum.svg" class="eq-principal svg-btn" width="22" alt="Eq 4">
+            <img src="svg/equations/equacao/equacao_5__prod.svg" class="eq-principal svg-btn" width="22" alt="Eq 5">
+            <img src="svg/equations/equacao/equacao_6_x__a_.svg" class="eq-principal svg-btn" width="22" alt="Eq 6">
+            <img src="svg/equations/equacao/equacao_7_x_tfrac_x__a_.svg" class="eq-resto svg-btn" width="22" alt="Eq 7">
+            <img src="svg/equations/equacao/equacao_8__int__a___b_.svg" class="eq-resto svg-btn" width="22" alt="Eq 8">
+            <img src="svg/equations/equacao/equacao_9__bigcap__a___b_.svg" class="eq-resto svg-btn" width="22" alt="Eq 9">
+            <img src="svg/equations/equacao/equacao_10__sum__a___b_.svg" class="eq-resto svg-btn" width="22" alt="Eq 10">
+            <img src="svg/equations/equacao/equacao_11__prod__a___v_.svg" class="eq-resto svg-btn" width="22" alt="Eq 11">
+            <img src="svg/equations/equacao/equacao_12_x__b___a_.svg" class="eq-resto svg-btn" width="22" alt="Eq 12">
+            <img src="svg/equations/equacao/equacao_13__frac__partial____partial_x_.svg" class="eq-resto svg-btn" width="22" alt="Eq 13">
+            <img src="svg/equations/equacao/equacao_14__oint.svg" class="eq-resto svg-btn" width="22" alt="Eq 14">
+            <img src="svg/equations/equacao/equacao_15__bigcup.svg" class="eq-resto svg-btn" width="22" alt="Eq 15">
+            <img src="svg/equations/equacao/equacao_16__sqrt_x_.svg" class="eq-resto svg-btn" width="22" alt="Eq 16">
+            <img src="svg/equations/equacao/equacao_17__coprod.svg" class="eq-resto svg-btn" width="22" alt="Eq 17">
+            <img src="svg/equations/equacao/equacao_18__x__a____b_.svg" class="eq-resto svg-btn" width="22" alt="Eq 18">
+            <img src="svg/equations/equacao/equacao_19__frac__partial_2____partial_x_2_.svg" class="eq-resto svg-btn" width="22" alt="Eq 19">
+            <img src="svg/equations/equacao/equacao_20__oint__a___b_.svg" class="eq-resto svg-btn" width="22" alt="Eq 20">
+            <img src="svg/equations/equacao/equacao_21__bigcup__a___b_.svg" class="eq-resto svg-btn" width="22" alt="Eq 21">
+            <img src="svg/equations/equacao/equacao_22__sqrt_n__x_.svg" class="eq-resto svg-btn" width="22" alt="Eq 22">
+            <img src="svg/equations/equacao/equacao_23__coprod__a___b_.svg" class="eq-resto svg-btn" width="22" alt="Eq 23">
+            <img src="svg/equations/equacao/equacao_24___a___b__textrm_C_.svg" class="eq-resto svg-btn" width="22" alt="Eq 24">
+            <img src="svg/equations/equacao/equacao_25__frac__mathrm_d_____mathrm_d__x_.svg" class="eq-resto svg-btn" width="22" alt="Eq 25">
+            <img src="svg/equations/equacao/equacao_26__iint__a___b_.svg" class="eq-resto svg-btn" width="22" alt="Eq 26">
+            <img src="svg/equations/equacao/equacao_27__displaystyle__lim__x__to_0_.svg" class="eq-resto svg-btn" width="22" alt="Eq 27">
+          </div>        
+        </div>
+        <div class="linha-2">
+          <div class="caixa-greek" style="width: 54px; border: 1px solid rgb(204, 204, 204); padding: 5px; text-align: center;
+            background: rgb(250, 250, 250); display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 10px; justify-items: center;">
+          <img src="svg/greek/equacao_1__alpha.svg" class="greek-principal svg-btn" width="11" alt="Alpha">
+          <img src="svg/greek/equacao_2__beta.svg" class="greek-principal svg-btn" width="11" alt="Beta">
+          <img src="svg/greek/equacao_3__zeta.svg" class="greek-principal svg-btn" width="11" alt="Zeta">
+          <img src="svg/greek/equacao_4__kappa.svg" class="greek-resto svg-btn" width="11" alt="Kappa">
+          <img src="svg/greek/equacao_5__epsilon.svg" class="greek-resto svg-btn" width="11" alt="Epsilon">
+          <img src="svg/greek/equacao_6__varepsilon.svg" class="greek-resto svg-btn" width="11" alt="Varepsilon">
+          <img src="svg/greek/equacao_7__iota.svg" class="greek-resto svg-btn" width="11" alt="Iota">
+          <img src="svg/greek/equacao_8__xi.svg" class="greek-resto svg-btn" width="11" alt="Xi">
+          <img src="svg/greek/equacao_9__vartheta.svg" class="greek-resto svg-btn" width="11" alt="Vartheta">
+          <img src="svg/greek/equacao_10__theta.svg" class="greek-resto svg-btn" width="11" alt="Theta">
+          <img src="svg/greek/equacao_11__nu.svg" class="greek-resto svg-btn" width="11" alt="Nu">
+          <img src="svg/greek/equacao_12__lambda.svg" class="greek-resto svg-btn" width="11" alt="Lambda">
+          <img src="svg/greek/equacao_13__mu.svg" class="greek-resto svg-btn" width="11" alt="Mu">
+          <img src="svg/greek/equacao_14__rho.svg" class="greek-resto svg-btn" width="11" alt="Rho">
+          <img src="svg/greek/equacao_15__upsilon.svg" class="greek-resto svg-btn" width="11" alt="Upsilon">
+          <img src="svg/greek/equacao_16__varrho.svg" class="greek-resto svg-btn" width="11" alt="Varrho">
+          <img src="svg/greek/equacao_17__pi.svg" class="greek-resto svg-btn" width="11" alt="Pi">
+          <img src="svg/greek/equacao_18__varpi.svg" class="greek-resto svg-btn" width="11" alt="Varpi">
+          <img src="svg/greek/equacao_19__tau.svg" class="greek-resto svg-btn" width="11" alt="Tau">
+          <img src="svg/greek/equacao_20__psi.svg" class="greek-resto svg-btn" width="11" alt="Psi">
+          <img src="svg/greek/equacao_21__sigma.svg" class="greek-resto svg-btn" width="11" alt="Sigma">
+          <img src="svg/greek/equacao_22__varsigma.svg" class="greek-resto svg-btn" width="11" alt="Varsigma">
+          <img src="svg/greek/equacao_23__chi.svg" class="greek-resto svg-btn" width="11" alt="Chi">
+          <img src="svg/greek/equacao_24__phi.svg" class="greek-resto svg-btn" width="11" alt="Phi">
+          <img src="svg/greek/equacao_25__varphi.svg" class="greek-resto svg-btn" width="11" alt="Varphi">
+          <img src="svg/greek/equacao_26__delta.svg" class="greek-resto svg-btn" width="11" alt="Delta">
+          <img src="svg/greek/equacao_27__omega.svg" class="greek-resto svg-btn" width="11" alt="Omega">
+          <img src="svg/greek/equacao_28__gamma.svg" class="greek-resto svg-btn" width="11" alt="Gamma">
+          </div>
+          <div class="caixa-symb10" style="width: 31px; border: 1px solid rgb(204, 204, 204); padding: 5px; text-align: center; background: rgb(250, 250, 250); 
+                  display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; justify-items: center;">
+              <img src="svg/symb10/equacao_1__Phi.svg" class="s10-principal svg-btn" width="11" alt="Phi">
+              <img src="svg/symb10/equacao_2__Psi.svg" class="s10-principal svg-btn" width="11" alt="Psi">
+              <img src="svg/symb10/equacao_3__Omega.svg" class="s10-resto svg-btn" width="11" alt="Omega">
+              <img src="svg/symb10/equacao_4__Delta.svg" class="s10-resto svg-btn" width="11" alt="Delta">
+              <img src="svg/symb10/equacao_5__Theta.svg" class="s10-resto svg-btn" width="11" alt="Theta">
+              <img src="svg/symb10/equacao_6__Lambda.svg" class="s10-resto svg-btn" width="11" alt="Lambda">
+              <img src="svg/symb10/equacao_7__Xi.svg" class="s10-resto svg-btn" width="11" alt="Xi">
+              <img src="svg/symb10/equacao_8__Pi.svg" class="s10-resto svg-btn" width="11" alt="Pi">
+              <img src="svg/symb10/equacao_9__Sigma.svg" class="s10-resto svg-btn" width="11" alt="Sigma">
+              <img src="svg/symb10/equacao_10__Upsilon.svg" class="s10-resto svg-btn" width="11" alt="Upsilon">
+              <img src="svg/symb10/equacao_11__Gamma.svg" class="s10-resto svg-btn" width="11" alt="Gamma">
+          </div>
+          
+          <div class="caixa-symb6" style="width: 31px; border: 1px solid rgb(204, 204, 204); padding: 5px; text-align: center; background: rgb(250, 250, 250); 
+                  display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px; justify-items: center;">
+                <img src="svg/symb6/equacao_1__bar_x_.svg" class="s6-principal svg-btn" width="20" alt="bar_x">
+                <img src="svg/symb6/equacao_2__vec_x_.svg" class="s6-principal svg-btn" width="20" alt="vec_x">
+                <img src="svg/symb6/equacao_3__dot_x_.svg" class="s6-resto svg-btn" width="11" alt="dot_x">
+                <img src="svg/symb6/equacao_4__ddot_x_.svg" class="s6-resto svg-btn" width="11" alt="ddot_x">
+                <img src="svg/symb6/equacao_5__hat_x_.svg" class="s6-resto svg-btn" width="11" alt="hat_x">
+                <img src="svg/symb6/equacao_6__check_x_.svg" class="s6-resto svg-btn" width="11" alt="check_x">
+                <img src="svg/symb6/equacao_7_x___.svg" class="s6-resto svg-btn" width="11" alt="x__">
+                <img src="svg/symb6/equacao_8_x_____.svg" class="s6-resto svg-btn" width="11" alt="x____">
+                <img src="svg/symb6/equacao_9__tilde_x_.svg" class="s6-resto svg-btn" width="11" alt="tilde_x">
+                <img src="svg/symb6/equacao_10__breve_x_.svg" class="s6-resto svg-btn" width="11" alt="breve_x">
+                <img src="svg/symb6/equacao_11__not_x.svg" class="s6-resto svg-btn" width="11" alt="not_x">
+                <img src="svg/symb6/equacao_12_x___circ_.svg" class="s6-resto svg-btn" width="11" alt="x_circ">
+                <img src="svg/symb6/equacao_13__grave_x_.svg" class="s6-resto svg-btn" width="11" alt="grave_x">
+                <img src="svg/symb6/equacao_14__acute_x_.svg" class="s6-resto svg-btn" width="11" alt="acute_x">
+          </div>
+
+          <div class="caixa-symb5" style="width: 31px; border: 1px solid rgb(204, 204, 204); padding: 5px; text-align: center; background: rgb(250, 250, 250); 
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; justify-items: center;">
+                <img src="svg/symb5/equacao_1__subset.svg" class="s5-principal svg-btn" width="11" alt="subset">
+                <img src="svg/symb5/equacao_2__supset.svg" class="s5-principal svg-btn" width="11" alt="supset">
+                <img src="svg/symb5/equacao_3__subseteq.svg" class="s5-resto svg-btn" width="11" alt="subseteq">
+                <img src="svg/symb5/equacao_4__supseteq.svg" class="s5-resto svg-btn" width="11" alt="supseteq">
+                <img src="svg/symb5/equacao_5__nsubseteq.svg" class="s5-resto svg-btn" width="11" alt="nsubseteq">
+                <img src="svg/symb5/equacao_6__nsupseteq.svg" class="s5-resto svg-btn" width="11" alt="nsupseteq">
+                <img src="svg/symb5/equacao_7__subseteqq.svg" class="s5-resto svg-btn" width="11" alt="subseteqq">
+                <img src="svg/symb5/equacao_8__supseteqq.svg" class="s5-resto svg-btn" width="11" alt="supseteqq">
+                <img src="svg/symb5/equacao_9__nsubseteq.svg" class="s5-resto svg-btn" width="11" alt="nsubseteq">
+                <img src="svg/symb5/equacao_10__nsupseteqq.svg" class="s5-resto svg-btn" width="11" alt="nsupseteqq">
+                <img src="svg/symb5/equacao_11__sqsubset.svg" class="s5-resto svg-btn" width="11" alt="sqsubset">
+                <img src="svg/symb5/equacao_12__sqsupset.svg" class="s5-resto svg-btn" width="11" alt="sqsupset">
+                <img src="svg/symb5/equacao_13__sqsubseteq.svg" class="s5-resto svg-btn" width="11" alt="sqsubseteq">
+                <img src="svg/symb5/equacao_14__sqsupseteq.svg" class="s5-resto svg-btn" width="11" alt="sqsupseteq">
+                <img src="svg/symb5/equacao_15__in.svg" class="s5-resto svg-btn" width="11" alt="in">
+                <img src="svg/symb5/equacao_16__ni.svg" class="s5-resto svg-btn" width="11" alt="ni">
+                <img src="svg/symb5/equacao_17__notin.svg" class="s5-resto svg-btn" width="11" alt="notin">
+          </div>
+
+          <div class="caixa-symb11" style="width: 31px; border: 1px solid rgb(204, 204, 204); padding: 5px; text-align: center; background: rgb(250, 250, 250);
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px; justify-items: center;">
+                <img src="svg/sybm11/equacao_1__lt.svg" class="s11-principal svg-btn" width="11" alt="lt">
+                <img src="svg/sybm11/equacao_2__gt.svg" class="s11-principal svg-btn" width="11" alt="gt">
+                <img src="svg/sybm11/equacao_3__leq.svg" class="s11-resto svg-btn" width="11" alt="empty">
+                <img src="svg/sybm11/equacao_4__geq.svg" class="s11-resto svg-btn" width="11" alt="leq">
+                <img src="svg/sybm11/equacao_5__leqslant.svg" class="s11-resto svg-btn" width="11" alt="geq">
+                <img src="svg/sybm11/equacao_6__geqslant.svg" class="s11-resto svg-btn" width="11" alt="doteq">
+                <img src="svg/sybm11/equacao_7__nless.svg" class="s11-resto svg-btn" width="11" alt="leqslant">
+                <img src="svg/sybm11/equacao_8__ngtr.svg" class="s11-resto svg-btn" width="11" alt="geqslant">
+                <img src="svg/sybm11/equacao_9__nleqslant.svg" class="s11-resto svg-btn" width="11" alt="equiv">
+                <img src="svg/sybm11/equacao_10__ngeqslant.svg" class="s11-resto svg-btn" width="11" alt="nless">
+                <img src="svg/sybm11/equacao_11__.svg" class="s11-resto svg-btn" width="11" alt="ngtr">
+                <img src="svg/sybm11/equacao_12__doteq.svg" class="s11-resto svg-btn" width="11" alt="neq">
+                <img src="svg/sybm11/equacao_13__neq.svg" class="s11-resto svg-btn" width="11" alt="nleqslant">
+                <img src="svg/sybm11/equacao_14__overset__underset__mathrm_def________.svg" class="s11-resto svg-btn" width="11" alt="ngeqslant">
+                <img src="svg/sybm11/equacao_15__equiv.svg" class="s11-resto svg-btn" width="11" alt="not_equiv">
+                <img src="svg/sybm11/equacao_16__not_equiv.svg" class="s11-resto svg-btn" width="11" alt="prec">
+                <img src="svg/sybm11/equacao_17__sim.svg" class="s11-resto svg-btn" width="11" alt="succ">
+                <img src="svg/sybm11/equacao_18__simeq.svg" class="s11-resto svg-btn" width="11" alt="overset_underset">
+                <img src="svg/sybm11/equacao_19__approx.svg" class="s11-resto svg-btn" width="11" alt="preceq">
+                <img src="svg/sybm11/equacao_20__cong.svg" class="s11-resto svg-btn" width="11" alt="succeq">
+                <img src="svg/sybm11/equacao_21__prec.svg" class="s11-resto svg-btn" width="11" alt="sim">
+                <img src="svg/sybm11/equacao_22__succ.svg" class="s11-resto svg-btn" width="11" alt="ll">
+                <img src="svg/sybm11/equacao_23__preceq.svg" class="s11-resto svg-btn" width="11" alt="gg">
+                <img src="svg/sybm11/equacao_24__succeq.svg" class="s11-resto svg-btn" width="11" alt="approx">
+                <img src="svg/sybm11/equacao_25__ll.svg" class="s11-resto svg-btn" width="11" alt="vdash">
+                <img src="svg/sybm11/equacao_26__gg.svg" class="s11-resto svg-btn" width="11" alt="dashv">
+                <img src="svg/sybm11/equacao_27__vdash.svg" class="s11-resto svg-btn" width="11" alt="simeq">
+                <img src="svg/sybm11/equacao_28__dashv.svg" class="s11-resto svg-btn" width="11" alt="smile">
+                <img src="svg/sybm11/equacao_29__smile.svg" class="s11-resto svg-btn" width="11" alt="frown">
+                <img src="svg/sybm11/equacao_30__frown.svg" class="s11-resto svg-btn" width="11" alt="cong">
+                <img src="svg/sybm11/equacao_31__models.svg" class="s11-resto svg-btn" width="11" alt="models">
+                <img src="svg/sybm11/equacao_32__perp.svg" class="s11-resto svg-btn" width="11" alt="perp">
+                <img src="svg/sybm11/equacao_33__asymp.svg" class="s11-resto svg-btn" width="11" alt="asymp">
+                <img src="svg/sybm11/equacao_34__parallel.svg" class="s11-resto svg-btn" width="11" alt="mid">
+                <img src="svg/sybm11/equacao_35__mid.svg" class="s11-resto svg-btn" width="11" alt="parallel">
+                <img src="svg/sybm11/equacao_36__propto.svg" class="s11-resto svg-btn" width="11" alt="propto">
+                <img src="svg/sybm11/equacao_37__bowtie.svg" class="s11-resto svg-btn" width="11" alt="bowtie">
+                <img src="svg/sybm11/equacao_38__Join.svg" class="s11-resto svg-btn" width="11" alt="join">
+          </div>
+
+        </div>
+      </div>
+
+      
+      <div class="vertical-line2 "></div>
+      
+      <div class="container-symbols">
+        <div class="linha3-1">
+          <div class="caixa-symb2" style="width:55px; border:1px solid #ccc; padding:5px; text-align:center; background:#fafafa; 
+              display:grid; grid-template-columns: repeat(3, 1fr); gap: 6px; justify-items: center;">
+              <img src="svg/symb2/equacao_1__pm.svg" class="s2-principal svg-btn" width="11" alt="pm">
+              <img src="svg/symb2/equacao_2__mp.svg" class="s2-principal svg-btn" width="11" alt="mp">
+              <img src="svg/symb2/equacao_3__dotplus.svg" class="s2-principal svg-btn" width="11" alt="dotplus">
+              <img src="svg/symb2/equacao_4__Cap.svg" class="s2-resto svg-btn" width="11" alt="Cap">
+              <img src="svg/symb2/equacao_5__Cup.svg" class="s2-resto svg-btn" width="11" alt="Cup">
+              <img src="svg/symb2/equacao_6__uplus.svg" class="s2-resto svg-btn" width="11" alt="uplus">
+              <img src="svg/symb2/equacao_7__times.svg" class="s2-resto svg-btn" width="11" alt="times">
+              <img src="svg/symb2/equacao_8__ast.svg" class="s2-resto svg-btn" width="11" alt="ast">
+              <img src="svg/symb2/equacao_9__div.svg" class="s2-resto svg-btn" width="11" alt="div">
+              <img src="svg/symb2/equacao_10__sqcap.svg" class="s2-resto svg-btn" width="11" alt="sqcap">
+              <img src="svg/symb2/equacao_11__sqcup.svg" class="s2-resto svg-btn" width="11" alt="sqcup">
+              <img src="svg/symb2/equacao_12__bigsqcup.svg" class="s2-resto svg-btn" width="11" alt="bigsqcup">
+              <img src="svg/symb2/equacao_13__wedge.svg" class="s2-resto svg-btn" width="11" alt="wedge">
+              <img src="svg/symb2/equacao_14__barwedge.svg" class="s2-resto svg-btn" width="11" alt="barwedge">
+              <img src="svg/symb2/equacao_15__cap.svg" class="s2-resto svg-btn" width="11" alt="cap">
+              <img src="svg/symb2/equacao_16__vee.svg" class="s2-resto svg-btn" width="11" alt="vee">
+              <img src="svg/symb2/equacao_17__veebar.svg" class="s2-resto svg-btn" width="11" alt="veebar">
+              <img src="svg/symb2/equacao_18__cup.svg" class="s2-resto svg-btn" width="11" alt="cup">
+              <img src="svg/symb2/equacao_19__triangleleft.svg" class="s2-resto svg-btn" width="11" alt="triangleleft">
+              <img src="svg/symb2/equacao_20__triangleright.svg" class="s2-resto svg-btn" width="11" alt="triangleright">
+              <img src="svg/symb2/equacao_21__bigtriangleup.svg" class="s2-resto svg-btn" width="11" alt="bigtriangleup">
+              <img src="svg/symb2/equacao_22__bigstar.svg" class="s2-resto svg-btn" width="11" alt="bigstar">
+              <img src="svg/symb2/equacao_23__star.svg" class="s2-resto svg-btn" width="11" alt="star">
+              <img src="svg/symb2/equacao_24__bigtriangledown.svg" class="s2-resto svg-btn" width="11" alt="bigtriangledown">
+              <img src="svg/symb2/equacao_25__dagger.svg" class="s2-resto svg-btn" width="11" alt="dagger">
+              <img src="svg/symb2/equacao_26__square.svg" class="s2-resto svg-btn" width="11" alt="square">
+              <img src="svg/symb2/equacao_27__blacksquare.svg" class="s2-resto svg-btn" width="11" alt="blacksquare">
+              <img src="svg/symb2/equacao_28__ddagger.svg" class="s2-resto svg-btn" width="11" alt="ddagger">
+              <img src="svg/symb2/equacao_29__triangle.svg" class="s2-resto svg-btn" width="11" alt="triangle">
+              <img src="svg/symb2/equacao_30__blacktriangle.svg" class="s2-resto svg-btn" width="11" alt="blacktriangle">
+              <img src="svg/symb2/equacao_31__wr.svg" class="s2-resto svg-btn" width="11" alt="wr">
+              <img src="svg/symb2/equacao_32__triangledown.svg" class="s2-resto svg-btn" width="11" alt="triangledown">
+              <img src="svg/symb2/equacao_33__blacktriangledown.svg" class="s2-resto svg-btn" width="11" alt="blacktriangledown">
+              <img src="svg/symb2/equacao_34__diamond.svg" class="s2-resto svg-btn" width="11" alt="diamond">
+              <img src="svg/symb2/equacao_35__lozenge.svg" class="s2-resto svg-btn" width="11" alt="lozenge">
+              <img src="svg/symb2/equacao_36__blacklozenge.svg" class="s2-resto svg-btn" width="11" alt="blacklozenge">
+              <img src="svg/symb2/equacao_37__bigcirc.svg" class="s2-resto svg-btn" width="11" alt="bigcirc">
+              <img src="svg/symb2/equacao_38__circ.svg" class="s2-resto svg-btn" width="11" alt="circ">
+              <img src="svg/symb2/equacao_39__bullet.svg" class="s2-resto svg-btn" width="11" alt="bullet">
+              <img src="svg/symb2/equacao_40__oslash.svg" class="s2-resto svg-btn" width="11" alt="oslash">
+              <img src="svg/symb2/equacao_41__circledcirc.svg" class="s2-resto svg-btn" width="11" alt="circledcirc">
+              <img src="svg/symb2/equacao_42__circleddash.svg" class="s2-resto svg-btn" width="11" alt="circleddash">
+              <img src="svg/symb2/equacao_43__bigodot.svg" class="s2-resto svg-btn" width="11" alt="bigodot">
+              <img src="svg/symb2/equacao_44__odot.svg" class="s2-resto svg-btn" width="11" alt="odot">
+              <img src="svg/symb2/equacao_45__cdot.svg" class="s2-resto svg-btn" width="11" alt="cdot">
+              <img src="svg/symb2/equacao_46__bigoplus.svg" class="s2-resto svg-btn" width="11" alt="bigoplus">
+              <img src="svg/symb2/equacao_47__oplus.svg" class="s2-resto svg-btn" width="11" alt="oplus">
+              <img src="svg/symb2/equacao_48__ominus.svg" class="s2-resto svg-btn" width="11" alt="ominus">
+              <img src="svg/symb2/equacao_49__bigotimes.svg" class="s2-resto svg-btn" width="11" alt="bigotimes">
+              <img src="svg/symb2/equacao_50__otimes.svg" class="s2-resto svg-btn" width="11" alt="otimes">
+              <img src="svg/symb2/equacao_51__circledast.svg" class="s2-resto svg-btn" width="11" alt="circledast">
+              <img src="svg/symb2/equacao_52__setminus.svg" class="s2-resto svg-btn" width="11" alt="setminus">
+              <img src="svg/symb2/equacao_53__amalg.svg" class="s2-resto svg-btn" width="11" alt="amalg">
+			  <img src="svg/symb2/equacao_54__nabla.svg" class="s2-resto svg-btn" width="11" alt="nabla">
+          </div>
+
+            
+          <div class="caixa-symb8" style="width:50px; border:1px solid #ccc; padding:5px; text-align:center; background:#fafafa; 
+            display:grid; grid-template-columns: repeat(2, 1fr); gap: 6px; justify-items: center;">  
+              <img src="svg/symb8/equacao_1__leftarrow.svg" class="s8-principal svg-btn" width="17" alt="leftarrow">
+              <img src="svg/symb8/equacao_2__rightarrow.svg" class="s8-principal svg-btn" width="17" alt="rightarrow">
+              <img src="svg/symb8/equacao_3__Leftarrow.svg" class="s8-resto svg-btn" width="17" alt="Leftarrow">
+              <img src="svg/symb8/equacao_4__Rightarrow.svg" class="s8-resto svg-btn" width="17" alt="Rightarrow">
+              <img src="svg/symb8/equacao_5__leftrightarrow.svg" class="s8-resto svg-btn" width="17" alt="leftrightarrow">
+              <img src="svg/symb8/equacao_6__Leftrightarrow.svg" class="s8-resto svg-btn" width="17" alt="Leftrightarrow">
+              <img src="svg/symb8/equacao_7__mapsto.svg" class="s8-resto svg-btn" width="17" alt="mapsto">
+              <img src="svg/symb8/equacao_8__to.svg" class="s8-resto svg-btn" width="17" alt="to">
+              <img src="svg/symb8/equacao_9__leftharpoonup.svg" class="s8-resto svg-btn" width="17" alt="leftharpoonup">
+              <img src="svg/symb8/equacao_10__rightharpoonup.svg" class="s8-resto svg-btn" width="17" alt="rightharpoonup">
+              <img src="svg/symb8/equacao_11__leftrightharpoons.svg" class="s8-resto svg-btn" width="17" alt="leftrightharpoons">
+              <img src="svg/symb8/equacao_12__rightleftharpoons.svg" class="s8-resto svg-btn" width="17" alt="rightleftharpoons">
+              <img src="svg/symb8/equacao_13__xleftarrow_ijk__abc_.svg" class="s8-resto svg-btn" width="17" alt="xleftarrow_ijk_abc">
+              <img src="svg/symb8/equacao_14__xrightarrow_ijk__abc_.svg" class="s8-resto svg-btn" width="17" alt="xrightarrow_ijk_abc">
+              <img src="svg/symb8/equacao_15__overset_x___leftarrow_.svg" class="s8-resto svg-btn" width="17" alt="overset_x_leftarrow">
+              <img src="svg/symb8/equacao_16__overset_x___rightarrow_.svg" class="s8-resto svg-btn" width="17" alt="overset_x_rightarrow">
+              <img src="svg/symb8/equacao_17__underset_x___leftarrow_.svg" class="s8-resto svg-btn" width="17" alt="underset_x_leftarrow">
+              <img src="svg/symb8/equacao_18__underset_x___rightarrow_.svg" class="s8-resto svg-btn" width="17" alt="underset_x_rightarrow">
+              <img src="svg/symb8/equacao_19__uparrow.svg" class="s8-resto svg-btn" width="17" alt="uparrow">
+        </div>
+        </div>
+        <div class="linha3-2">
+          <div class="caixa-symb3" style="width:55px; border:1px solid #ccc; padding:5px; text-align:center; background:#fafafa; 
+            display:grid; grid-template-columns: repeat(3, 1fr); gap: 5px; justify-items: center;">
+            <img src="svg/symb3/equacao_1__therefore.svg" class="s3-principal svg-btn" width="20" alt="therefore">
+            <img src="svg/symb3/equacao_2__partial.svg" class="s3-principal svg-btn" width="20" alt="partial">
+            <img src="svg/symb3/equacao_3__imath.svg" class="s3-principal svg-btn" width="20" alt="imath">
+            <img src="svg/symb3/equacao_4__because.svg" class="s3-resto svg-btn" width="11" alt="because">
+            <img src="svg/symb3/equacao_5__varnothing.svg" class="s3-resto svg-btn" width="11" alt="varnothing">
+            <img src="svg/symb3/equacao_6__jmath.svg" class="s3-resto svg-btn" width="11" alt="jmath">
+            <img src="svg/symb3/equacao_7__cdots.svg" class="s3-resto svg-btn" width="11" alt="cdots">
+            <img src="svg/symb3/equacao_8__infty.svg" class="s3-resto svg-btn" width="11" alt="infty">
+            <img src="svg/symb3/equacao_9__vdots.svg" class="s3-resto svg-btn" width="11" alt="vdots">
+            <img src="svg/symb3/equacao_10__ddots.svg" class="s3-resto svg-btn" width="11" alt="ddots">
+            <img src="svg/symb3/equacao_11__S.svg" class="s3-resto svg-btn" width="11" alt="S">
+            <img src="svg/symb3/equacao_12__wp.svg" class="s3-resto svg-btn" width="11" alt="wp">
+            <img src="svg/symb3/equacao_13__exists.svg" class="s3-resto svg-btn" width="11" alt="exists">
+            <img src="svg/symb3/equacao_14__forall.svg" class="s3-resto svg-btn" width="11" alt="forall">
+            <img src="svg/symb3/equacao_15__top.svg" class="s3-resto svg-btn" width="11" alt="top">
+            <img src="svg/symb3/equacao_16__Re.svg" class="s3-resto svg-btn" width="11" alt="Re">
+            <img src="svg/symb3/equacao_17__Im.svg" class="s3-resto svg-btn" width="11" alt="Im">
+            <img src="svg/symb3/equacao_18__mho.svg" class="s3-resto svg-btn" width="11" alt="mho">
+            <img src="svg/symb3/equacao_19__mathbb_N_.svg" class="s3-resto svg-btn" width="11" alt="mathbb_N">
+            <img src="svg/symb3/equacao_20__mathbb_Z_.svg" class="s3-resto svg-btn" width="11" alt="mathbb_Z">
+            <img src="svg/symb3/equacao_21__mathbb_R_.svg" class="s3-resto svg-btn" width="11" alt="mathbb_R">
+            <img src="svg/symb3/equacao_22__mathbb_C_.svg" class="s3-resto svg-btn" width="11" alt="mathbb_C">
+            <img src="svg/symb3/equacao_23__mathbb_Q_.svg" class="s3-resto svg-btn" width="11" alt="mathbb_Q">
+            <img src="svg/symb3/equacao_24__mathbb_P_.svg" class="s3-resto svg-btn" width="11" alt="mathbb_P">
+            <img src="svg/symb3/equacao_25__angle.svg" class="s3-resto svg-btn" width="11" alt="angle">
+            <img src="svg/symb3/equacao_26__measuredangle.svg" class="s3-resto svg-btn" width="11" alt="measuredangle">
+            <img src="svg/symb3/equacao_27__sphericalangle.svg" class="s3-resto svg-btn" width="11" alt="sphericalangle">
+            <img src="svg/symb3/equacao_28__mathbb_I_.svg" class="s3-resto svg-btn" width="11" alt="mathbb_I">
+        </div>
+          <div class="caixa-symb9" style="width:50px; border:1px solid #ccc; padding:5px; text-align:center; background:#fafafa; 
+              display:grid; grid-template-columns: repeat(2, 1fr); gap: 6px; justify-items: center;">  
+              <img src="svg/symb9/equacao_1__left___right_.svg" class="s9-principal svg-btn" width="20" alt="left right 1">
+              <img src="svg/symb9/equacao_2__left____right__.svg" class="s9-principal svg-btn" width="20" alt="left right 2">
+              <img src="svg/symb9/equacao_3__left___right_.svg" class="s9-resto svg-btn" width="20" alt="left right 3">
+              <img src="svg/symb9/equacao_4__left___right_.svg" class="s9-resto svg-btn" width="20" alt="left right 4">
+              <img src="svg/symb9/equacao_5__left____right__.svg" class="s9-resto svg-btn" width="20" alt="left right 5">
+              <img src="svg/symb9/equacao_6__left__lfloor__right__rfloor.svg" class="s9-resto svg-btn" width="20" alt="left lfloor right rfloor">
+              <img src="svg/symb9/equacao_7__left____right__.svg" class="s9-resto svg-btn" width="20" alt="left right 7">
+              <img src="svg/symb9/equacao_8__left__lceil__right__rceil.svg" class="s9-resto svg-btn" width="20" alt="left lceil right rceil">
+              <img src="svg/symb9/equacao_9__left____right___.svg" class="s9-resto svg-btn" width="20" alt="left right 9">
+              <img src="svg/symb9/equacao_10____left___right___.svg" class="s9-resto svg-btn" width="20" alt="left right 10">
+          </div>
+        </div>
+      </div>
+          <div class="container-caixa">
+            <div class="linha4">
+              <div class="caixa-symb12" id="caixaSymb12" style="width:72px; border:1px solid #ccc; padding:5px; text-align:center; background:#fafafa; 
+              display:grid; grid-template-columns: repeat(2, 1fr); gap: 3px; justify-items: center;">  
+                  <img src="svg/symb12/equacao_1__begin_matrix______________end_matrix_.svg" class="s12-principal svg-btn12" width="20" alt="begin matrix end matrix">
+                  <img src="svg/symb12/equacao_2__begin_bmatrix______________end_bmatrix_.svg" class="s12-principal svg-btn12" width="20" alt="begin bmatrix end bmatrix">
+                  <img src="svg/symb12/equacao_3__binom_a__b_.svg" class="s12-resto svg-btn" width="20" alt="binom a b">
+                  <img src="svg/symb12/equacao_4__begin_pmatrix______________end_pmatrix_.svg" class="s12-resto svg-btn12" width="20" alt="begin pmatrix end pmatrix">
+                  <img src="svg/symb12/equacao_5__bigl__begin_smallmatrix______________end_smallmatrix__bigr_.svg" class="s12-resto svg-btn12" width="20" alt="bigl begin smallmatrix end smallmatrix bigr">
+                  <img src="svg/symb12/equacao_6__begin_vmatrix______________end_vmatrix_.svg" class="s12-resto svg-btn12" width="20" alt="begin vmatrix end vmatrix">
+                  <img src="svg/symb12/equacao_7__begin_Bmatrix______________end_Bmatrix_.svg" class="s12-resto svg-btn12" width="20" alt="begin Bmatrix end Bmatrix">
+                  <img src="svg/symb12/equacao_8__begin_Vmatrix______________end_Vmatrix_.svg" class="s12-resto svg-btn12" width="20" alt="begin Vmatrix end Vmatrix">
+                  <img src="svg/symb12/equacao_9__begin_align_______________end_align__.svg" class="s12-resto svg-btn12" width="20" alt="begin align end align">
+                  <img src="svg/symb12/equacao_10__left__begin_matrix______________end_matrix__right_.svg" class="s12-resto svg-btn12" width="20" alt="left begin matrix end matrix right">
+                  <img src="svg/symb12/equacao_11__left__begin_matrix______________end_matrix__right__.svg" class="s12-resto svg-btn12" width="20" alt="left begin matrix end matrix right 2">
+                  <img src="svg/symb12/equacao_12__left__begin_matrix______________end_matrix__right___.svg" class="s12-resto svg-btn12" width="20" alt="left begin matrix right brace">
+                </div>
+              <div class="vertical-line4 "></div>
+              <div class="container-header">
+                <div class="linha5">
+                  <div class="header-box">
+                    Text with LaTeX Equation Renderer
+                  </div>    
+                  <div class="btns_dark_light" onclick="toggleModeText()">
+                    Dark Mode ⚫️
+                  </div>              
+                </div>
+                <div class="header-box2">
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- textbox 
+    <div class="textbox-addon-container">
+      <textarea id="textbox-addon" placeholder="Clique aqui para começar a escrever..."></textarea>
+      <div class="cursor-addon" id="cursor-addon"></div>
+  </div>-->
+
+  <!-- Modal matrix -->
+  <div id="matrixModal" class="matrix-modal">
+    <div id="matrixSelection" class="matrixCellSelection"></div>
+    <div class="cc_manualSelection">
+      <div class="inputs-row">
+        <label for="modal-rows">Rows:</label>
+        <input id="modal-rows" title="Rows" type="number" min="1" max="8" value="2">
+        <label for="modal-columns">Columns:</label>
+        <input id="modal-columns" title="Columns" type="number" min="1" max="8" value="2">
+      </div>
+
+      <div class="button-row">
+        <button id="voltarBtn" type="button">Return</button>
+        <button id="okBtn" type="button">Ok</button>
+      </div>
+    </div>
+  </div>
+  
+
+</header>
+
+<main>
+  <section style="position: relative; flex: 1;">
+    <!-- overlay deve ficar antes do textarea para ficar "atrás" dele -->
+    <div id="highlightedText"></div>
+    <div id="highlightedBuffer" style="display:none;"></div>
+    <textarea id="inputText" spellcheck="false" placeholder="Type normal text and LaTeX code here... Example: Euler's formula: $e^{i\pi} + 1 = 0$"></textarea>
+    <div class="cursor-addon" id="cursor-addon"></div>
+  </section>
+  
+  <section>
+    <label>Rendered Output:</label>
+    <div id="renderedOutput" aria-live="polite" aria-label="Rendered output with math equations and images"></div>
+  </section>
+  <div id="botoesFundo">
+    <button id="exportEquations">💾 Equations</button>
+    <button id="openTabBtn">Generate Page</button>
+  </div>
+  <div id="botoesFundo2">
+    <a onclick="End_Tutorial()" class="animated-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      End<br>Tutorial
+    </a>
+  </div>
+</main>
+
+<footer>Powered by MathJax</footer>
+
+<!-- Gerar ou salvar a pagina quando clico no botao Generate Page e Save Page -->
+<script src="./js/Generate_page_save_page.js"></script> 
+
+<!-- Config do MathJax -->
+<script src="./js/MathJax_config.js"></script> 
+
+
+  <!--
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+  -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  
+  <script src="./js/MathJax_Markdown_parse_and_render.js"></script> 
+  
+  <!-- Syntax highlighting otimizado -->
+  <script src="https://cdn.jsdelivr.net/npm/mark.js/dist/mark.min.js"></script>
+
+<script src="./js/funcoes_highlighting.js"></script> 
+
+  
+  
+  <!-- funcoes para insercao de texto ================================================================================================= -->
+
+<!-- funcoes de cursor e textbox -->
+<script src="./js/funcoes_cursor_e_textbox.js"></script>
+
+<!-- Mapeamento de SVG's e insercão de texto correspondente na textbox -->
+<script src="./js/mapeamento_e_insercao_texto_SVG_onclick.js"></script>
+
+<!-- funcões para matriz que é aberta depois de clicar num simbolo da caixa 12 -->
+<script src="./js/matrix_box12.js"></script>
+
+<!-- Iframe aberto quando se carrega no botao para guardar SVG -->
+<script src="./js/iframe.js"></script>
+
+ 
+
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+
+  body {
+    background: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+  .dropdown-container {
+      position: relative;
+      display: inline-block;
+      border: 1px solid #ccc;
+      background: #fafafa;
+      padding: 3px;
+      cursor: pointer;
+      text-align: center;
+      width: 70px;
+      transition: max-height 0.5s ease;
+      overflow: hidden;
+      max-height: 15px; /* Altura fechada inicial */
+    }
+
+    .dropdown-container:hover {
+      max-height: 220px; /* Altura expandida para mostrar o dropdown */
+    }
+
+    .dropdown-panel {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      grid-gap: 5px;
+      padding: 5px 0;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+      justify-items: center;
+    }
+
+    .dropdown-container:hover .dropdown-panel {
+      max-height: 200px;
+      opacity: 1;
+    }
+  /* painel com caixas de cor */
+  .color-panel {
+    display: grid;
+    grid-template-columns: repeat(3, auto); /* 3 colunas lado a lado */
+    grid-gap: 10px;
+    justify-content: center; /* centraliza o conjunto dentro do container */
+    margin-bottom: 5px; /* separa das cores extras do dropdown */
+  }
+  /* caixas de cor */
+  .color-box {
+    width: 15px; 
+    height: 15px;
+    border-radius: 3px;
+    border: 1px solid #eee;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 0 auto;
+    transition: transform 0.2s ease;
+  }
+
+  /* cores */
+  .darkred   { background: rgb(128,0,0); }
+  .darkgreen { background: rgb(0,128,0); }
+  .darkblue  { background: rgb(0,0,128); }
+  .yellow    { background: rgb(255,255,0); }
+  .cyan      { background: rgb(0,255,255); }
+  .magenta   { background: rgb(255,0,255); }
+  .brown     { background: rgb(102,0,0); }
+  .teal      { background: rgb(0,128,128); }
+  .purple    { background: rgb(128,0,128); }
+  .orange    { background: rgb(255,140,0); }
+  .emerald   { background: rgb(0,204,153); }
+  .orchid    { background: rgb(152,0,205); }
+  .darkorange{ background: rgb(205,50,0); }
+  .golden    { background: rgb(183,134,11); }
+  .pink      { background: rgb(254,19,147); }
+  .red       { background: rgb(255,0,0); }
+  .green     { background: rgb(0,255,0); }
+  .blue      { background: rgb(0,0,255); }
+

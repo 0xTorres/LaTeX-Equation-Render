@@ -1,0 +1,1230 @@
+
+/* style das Caixas com SVG do header =================================================================================================*/
+
+
+  .caixa-svg {
+    position: relative;
+    width: 200px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    background: #fafafa;
+
+    /* altura mínima / máxima para animar */
+    max-height: 11px;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    justify-items: center;
+    }
+
+  .caixa-svg img {
+    max-height: 100px;
+    max-width: 110px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+    }
+
+  .svg-principal {
+    position: relative;
+    z-index: 2;
+  }
+
+  .svg-resto {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+   
+  .caixa-svg:hover {
+    max-height: 600px; /* ou o que precisar para comportar os SVGs adicionais */
+    }
+
+  .caixa-svg:hover .svg-resto {
+    max-height: 100px; /* valor do tamanho visível do SVG */
+    max-width: 110px;
+    width: auto;
+    opacity: 1;
+    }
+
+ 
+/* caixa-eq começa===================================================== */
+  .caixa-eq {
+    position: relative;
+    width: 200px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    background: #fafafa;
+    max-height: 11px;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .caixa-eq img {
+    max-height: 20px;
+    max-width: 110px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .eq-principal {
+    position: relative;
+    z-index: 2;
+    /*transform: translateY(-4px); */
+  }
+
+  .eq-resto {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+  }
+
+  .caixa-eq:hover {
+    max-height: 600px;
+  }
+
+  .caixa-eq:hover .eq-resto {
+    max-height: 100px;
+    opacity: 1;
+  }
+
+  .eq-principal, .eq-resto {
+    /*justify-self: start;*/
+    transform: translate(0px, -4px); 
+  }
+
+  .eq-principal.svg-btn:hover, .eq-resto.svg-btn:hover {
+      transform: translate(0px, -4px) scale(1.05); /* Combina translate + scale */
+  }
+
+  .eq-principal.svg-btn:active, .eq-resto.svg-btn:active {
+      transform: translate(0px, -4px) scale(0.95); /* Combina translate + scale */
+  }
+
+
+/* caixa-eq acaba===================================================== */
+/* caixa-space começa================================================= */
+.caixa-space {
+    position: relative;
+    width: 24px;
+    border: 1px solid #ccc;
+    padding: 5px; /* Ajuste o padding para menos, se necessário */
+    text-align: center;
+    background: #fafafa;
+    max-height: 11px;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 5px;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .caixa-space img {
+    max-height: 20px;
+    max-width: 110px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+    transform: translate(-2px, -0px);
+  }
+
+  .space-principal {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+  }
+
+  .space-resto {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+  }
+
+  .caixa-space:hover {
+    max-height: 77px;
+  }
+
+  .caixa-space:hover .space-resto {
+    max-height: 100px;
+    opacity: 1;
+  }
+
+  .caixa-space:hover .space-principal {
+    
+  }
+  .space-principal, .space-resto {
+    /*justify-self: start;*/
+    transform: translate(-3px, -0px); /* desloca 5px para a esquerda */
+  }
+  /* SOLUÇÃO: CSS específico para space elements */
+  .space-principal.svg-btn:hover, .space-resto.svg-btn:hover {
+      transform: translate(-2px, 0px) scale(1.05); /* Combina translate + scale */
+  }
+
+  .space-principal.svg-btn:active, .space-resto.svg-btn:active {
+      transform: translate(-2px, 0px) scale(0.95); /* Combina translate + scale */
+  }
+
+/* caixa-space acaba================================================= */ 
+
+/* caixa-greek começa================================================ */ 
+.caixa-greek {
+  position: relative;
+  width: 200px; /* ajuste conforme necessidade */
+  border: 1px solid #ccc;
+  padding: 5px;
+  text-align: center;
+  background: #fafafa;
+  max-height: 11px;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  justify-items: center;
+  align-items: center;
+}
+
+.caixa-greek img {
+  max-height: 15px;
+  max-width: 110px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.greek-principal {
+  position: relative;
+  z-index: 2;
+  /* exemplo para subir elementos */
+  transition: transform 0.3s ease;
+  transform: translateY(-2px);
+}
+
+.greek-resto {
+  max-height: 15px;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  transform: translateY(-2px);
+
+}
+
+  .caixa-greek:hover {
+    max-height: 600px; /* altura ajustável para mostrar conteúdo */
+  }
+
+  .caixa-greek:hover .greek-resto {
+    max-height: 100px;
+    opacity: 1;
+  }
+
+  .caixa-greek:hover .greek-principal {
+    /*transform: translateY(-2px);*/
+  }
+
+  .greek-principal.svg-btn:hover, .greek-resto.svg-btn:hover {
+      transform: translate(0px, -2px) scale(1.05); /* Combina translate + scale */
+  }
+
+  .greek-principal.svg-btn:active, .greek-resto.svg-btn:active {
+      transform: translate(0px, -2px) scale(0.95); /* Combina translate + scale */
+  }
+/* caixa-greek acaba================================================ */ 
+
+/* caixa-symb2 começa=============================================== */
+  .caixa-symb2 {
+    position: relative;
+    width: 200px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    background: #fafafa;
+    max-height: 11px;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .caixa-symb2 img {
+    max-height: 15px;
+    max-width: 110px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .s2-principal {
+    position: relative;
+    z-index: 2;
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+  }
+
+  .s2-resto {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    transform: translateY(-2px);
+  }
+
+  .caixa-symb2:hover {
+    max-height: 600px;
+  }
+
+  .caixa-symb2:hover .s2-resto {
+    max-height: 15px;
+    opacity: 1;
+  }
+
+  .caixa-symb2:hover .s2-principal {
+    
+    /*transform: translateY(-2px);*/
+  }
+
+  .s2-principal.svg-btn:hover, .s2-resto.svg-btn:hover {
+      transform: translate(0px, -2px) scale(1.05); /* Combina translate + scale */
+  }
+
+  .s2-principal.svg-btn:active, .s2-resto.svg-btn:active {
+      transform: translate(0px, -2px) scale(0.95); /* Combina translate + scale */
+  }
+
+/* caixa-symb2 acaba================================================ */
+
+/* caixa-symb3 começa================================================ */
+  .caixa-symb3 {
+    position: relative;
+    width: 200px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    background: #fafafa;
+    max-height: 11px;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .caixa-symb3 img {
+    max-height: 15px;
+    max-width: 20px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .s3-principal {
+    position: relative;
+    z-index: 2;
+    transform: translatex(0px);
+    transition: transform 0.3s ease;
+  }
+
+  .s3-resto {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    transform: translate(0px, 2px);
+  }
+
+  .caixa-symb3:hover {
+    max-height: 600px;
+  }
+
+  .caixa-symb3:hover .s3-resto {
+    max-height: 15px;
+    opacity: 1;
+  }
+
+  .caixa-symb3:hover .s3-principal {
+    /*transform: translateX(-2px);*/
+  }
+  
+  .s3-principal.svg-btn:hover {
+      transform: translate(0px, 0px) scale(1.05); /* Combina translate + scale */
+  }
+  .s3-resto.svg-btn:hover {
+      transform: translate(0px, 2px) scale(1.05); /* Combina translate + scale */
+  }
+  .s3-principal.svg-btn:active {
+      transform: translate(0px, 0px) scale(0.95); /* Combina translate + scale */
+  }
+  .s3-resto.svg-btn:active {
+      transform: translate(0px, 2px) scale(0.95); /* Combina translate + scale */
+  }
+/* caixa-symb3 acaba================================================ */
+
+/* caixa-symb5 começa================================================ */
+.caixa-symb5 {
+  position: relative;
+  width: 200px; /* ajuste conforme necessidade */
+  border: 1px solid #ccc;
+  padding: 20px;
+  text-align: center;
+  background: #fafafa;
+  max-height: 11px;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  justify-items: center;
+  align-items: center;
+}
+
+.caixa-symb5 img {
+  max-height: 100px;
+  max-width: 13px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+  transform: translate(-2px,1px);
+}
+
+.s5-principal {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.s5-resto {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  transform: translateY(-0px);
+}
+
+.caixa-symb5:hover {
+  max-height: 600px;
+}
+
+.caixa-symb5:hover .s5-resto {
+  max-height: 100px;
+  opacity: 1;
+}
+
+.caixa-symb5:hover .s5-principal {
+  
+  /*transform: translate(-2px,1px);*/
+}
+
+.s5-principal.svg-btn:hover, .s5-resto.svg-btn:hover {
+      transform: translate(-2px, 1px) scale(1.05); /* Combina translate + scale */
+  }
+
+  .s5-principal.svg-btn:active, .s5-resto.svg-btn:active {
+      transform: translate(-2px, 1px) scale(0.95); /* Combina translate + scale */
+  }
+/* caixa-symb5 acaba================================================ */
+
+/* caixa-symb6 começa================================================ */
+  .caixa-symb6 {
+    position: relative;
+    width: 200px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    background: #fafafa;
+    max-height: 11px;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .caixa-symb6 img {
+    max-height: 20px;
+    max-width: 20px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .s6-principal {
+    height: 14px;
+    position: relative;
+    z-index: 2;
+    transform: translate(-1px,-2px);
+    transition: transform 0.3s ease;
+  }
+
+  .s6-resto {
+    height: 14px;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    transform: translate(-1px,-2px);
+  }
+
+  .caixa-symb6:hover {
+    max-height: 600px;
+  }
+
+  .caixa-symb6:hover .s6-resto {
+    max-height: 100px;
+    opacity: 1;
+  }
+
+  .caixa-symb6:hover .s6-principal {
+    /*transform: translate(-2px,-2px);*/
+  }
+
+  .s6-principal.svg-btn:hover, .s6-resto.svg-btn:hover {
+      transform: translate(-1px, -2px) scale(1.05); /* Combina translate + scale */
+  }
+
+  .s6-principal.svg-btn:active, .s6-resto.svg-btn:active {
+      transform: translate(-1px, -2px) scale(0.95); /* Combina translate + scale */
+  }
+/* caixa-symb6 acaba================================================ */
+
+/* caixa-symb7 começa================================================ */
+  .caixa-symb7 {
+    position: relative;
+    width: 200px; /* ajuste conforme necessidade */
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    background: #fafafa;
+    max-height: 11px;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .caixa-symb7 img {
+    max-height: 100px;
+    max-width: 110px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .s7-principal {
+    position: relative;
+    z-index: 2;
+    transform: translate(-1px,-6px);
+    transition: transform 0.3s ease;
+  }
+
+  .s7-resto {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    transform: translate(-1px,-6px);
+  }
+
+  .caixa-symb7:hover {
+    max-height: 600px;
+  }
+
+  .caixa-symb7:hover .s7-resto {
+    max-height: 100px;
+    opacity: 1;
+  }
+
+  .caixa-symb7:hover .s7-principal {
+    
+    transform: translate(-1px,-6px);
+  }
+
+  .s7-principal.svg-btn:hover, .s7-resto.svg-btn:hover {
+      transform: translate(-1px, -6px) scale(1.05); /* Combina translate + scale */
+  }
+
+  .s7-principal.svg-btn:active, .s7-resto.svg-btn:active {
+      transform: translate(-1px, -6px) scale(0.95); /* Combina translate + scale */
+  }
+/* caixa-symb7 acaba================================================ */
+
+/* caixa-symb8 começa================================================ */
+  .caixa-symb8 {
+    position: relative;
+    width: 200px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    background: #fafafa;
+    max-height: 11px;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .caixa-symb8 img {
+    max-height: 40px;
+    max-width: 30px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .s8-principal {
+    position: relative;
+    z-index: 2;
+    transform: translate(0px,1px);
+    transition: transform 0.3s ease;
+  }
+
+  .s8-resto {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    transform: translate(0px,1px);
+  }
+
+  .caixa-symb8:hover {
+    max-height: 600px;
+  }
+
+  .caixa-symb8:hover .s8-resto {
+    max-height: 40px;
+    opacity: 1;
+  }
+
+  .caixa-symb8:hover .s8-principal {
+    /*transform: translate(-3px,1px);*/
+  }
+  .s8-principal.svg-btn:hover, .s8-resto.svg-btn:hover {
+      transform: translate(0px, 1px) scale(1.05); /* Combina translate + scale */
+  }
+
+  .s8-principal.svg-btn:active, .s8-resto.svg-btn:active {
+      transform: translate(0px, 1px) scale(0.95); /* Combina translate + scale */
+  }
+
+/* caixa-symb8 acaba================================================ */
+
+/* caixa-symb9 começa================================================ */
+  .caixa-symb9 {
+    position: relative;
+    width: 200px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    background: #fafafa;
+    max-height: 11px;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .caixa-symb9 img {
+    max-height: 40px;
+    max-width: 30px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .s9-principal {
+    position: relative;
+    z-index: 2;
+    transform: translateY(-3px);
+    transition: transform 0.3s ease;
+  }
+
+  .s9-resto {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    transform: translateY(-3px);
+  }
+
+  .caixa-symb9:hover {
+    max-height: 600px;
+  }
+
+  .caixa-symb9:hover .s9-resto {
+    max-height: 100px;
+    opacity: 1;
+  }
+
+  .caixa-symb9:hover .s9-principal {
+    
+    /*transform: translateY(-3px);*/
+  }
+
+  .s9-principal.svg-btn:hover, .s9-resto.svg-btn:hover {
+      transform: translate(0px, -3px) scale(1.05); /* Combina translate + scale */
+  }
+
+  .s9-principal.svg-btn:active, .s9-resto.svg-btn:active {
+      transform: translate(0px, -3px) scale(0.95); /* Combina translate + scale */
+  }
+/* caixa-symb9 acaba================================================ */
+
+/* caixa-symb10 começa================================================ */
+  .caixa-symb10 {
+    position: relative;
+    width: 200px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    background: #fafafa;
+    max-height: 11px;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .caixa-symb10 img {
+    max-height: 100px;
+    max-width: 110px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .s10-principal {
+    position: relative;
+    z-index: 2;
+    transform: translateX(-2px);
+    transition: transform 0.3s ease;
+  }
+
+  .s10-resto {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    transform: translateX(-2px);
+  }
+
+  .caixa-symb10:hover {
+    max-height: 600px;
+  }
+
+  .caixa-symb10:hover .s10-resto {
+    max-height: 100px;
+    opacity: 1;
+  }
+
+  .caixa-symb10:hover .s10-principal {
+    /*transform: translateX(-2px);*/
+  }
+  .s10-principal.svg-btn:hover, .s10-resto.svg-btn:hover {
+      transform: translate(-2px, 0px) scale(1.05); /* Combina translate + scale */
+  }
+
+  .s10-principal.svg-btn:active, .s10-resto.svg-btn:active {
+      transform: translate(-2px, 0px) scale(0.95); /* Combina translate + scale */
+  }
+/* caixa-symb10 acaba================================================ */
+
+/* caixa-symb11 começa================================================ */
+  .caixa-symb11 {
+    position: relative;
+    width: 200px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    background: #fafafa;
+    max-height: 11px;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .caixa-symb11 img {
+    max-height: 100px;
+    max-width: 20px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .s11-principal {
+    position: relative;
+    z-index: 2;
+    transform: translate(0px,1px);
+    transition: transform 0.3s ease;
+  }
+
+  .s11-resto {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    transform: translate(0px,1px);
+  }
+
+  .caixa-symb11:hover {
+    max-height: 600px;
+  }
+
+  .caixa-symb11:hover .s11-resto {
+    max-height: 100px;
+    opacity: 1;
+  }
+
+  .caixa-symb11:hover .s11-principal {
+    /*transform: translate(-4px,1px);*/
+  }
+  .s11-principal.svg-btn:hover, .s11-resto.svg-btn:hover {
+      transform: translate(0px, 1px) scale(1.05); /* Combina translate + scale */
+  }
+
+  .s11-principal.svg-btn:active, .s11-resto.svg-btn:active {
+      transform: translate(0px, 1px) scale(0.95); /* Combina translate + scale */
+  }
+/* caixa-symb11 acaba================================================ */
+
+/* caixa-symb12 começa================================================ */
+.caixa-symb12 {
+    position: relative;
+    width: 200px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    background: #fafafa;
+
+    /* altura mínima / máxima para animar */
+    max-height: 48px;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+    }
+
+  .caixa-symb12 img {
+    max-height: 100px;
+    max-width: 39px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+    }
+
+  .s12-principal {
+    position: relative;
+    z-index: 2;
+    transform: translate(0px,1px);
+  }
+
+  .s12-resto {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    transform: translate(0px,1px);
+    }
+   
+  .caixa-symb12:hover {
+    max-height: 600px; /* ou o que precisar para comportar os SVGs adicionais */
+    }
+
+  .caixa-symb12:hover .s12-resto {
+    max-height: 100px; /* valor do tamanho visível do SVG */
+    opacity: 1;
+    transform: translate(0px,1px);
+    }
+
+  .caixa-symb12:hover .s12-principal {
+    
+   /* transform: translate(-4px,1px);*/
+    }
+
+  .s12-principal.svg-btn12:hover, .s12-resto.svg-btn12:hover {
+      transform: translate(0px, 1px) scale(1.05); /* Combina translate + scale */
+  }
+
+  .s12-principal.svg-btn12:active, .s12-resto.svg-btn12:active {
+      transform: translate(0px, 1px) scale(0.95); /* Combina translate + scale */
+  }
+  /*  para binom{a}{b}  */ 
+  .s12-principal.svg-btn:hover, .s12-resto.svg-btn:hover {
+      transform: translate(0px, 1px) scale(1.05); /* Combina translate + scale */
+  }
+
+  .s12-principal.svg-btn:active, .s12-resto.svg-btn:active {
+      transform: translate(0px, 1px) scale(0.95); /* Combina translate + scale */
+  }
+/* caixa-symb12 acaba================================================ */
+
+.container-horizontal {
+    display: flex;
+    align-items: flex-start;
+    gap: 5px; /* espaço entre linha e caixa */
+    margin-left: -28px;
+    margin-top: -12px;
+    }
+
+  .vertical-line1 {
+    border-left: 2px solid #888;
+    height: 62px;
+    margin-top: -2px;
+    }
+  .vertical-line2 {
+    border-left: 2px solid #888;
+    height: 62px;
+    margin-top: -2px;
+    }
+    .vertical-line4 {
+    border-left: 2px solid #888;
+    height: 62px;
+    margin-top: -2px;
+    }
+
+  .container-linhas {  /* contem caixa-eq, caixa-greek,caixa-symbol10,caixa-symbol6,caixa-symbol5,caixa-symbol111 */
+    display: grid;
+    grid-template-rows: auto auto; /* duas linhas */
+    row-gap: 5px; /* espaço entre as linhas */
+    width: fit-content; /* ou o tamanho que desejar */
+  }
+
+  .linha-1 {
+    /* centralizar a caixa-eq */
+    position: absolute;
+    display: flex;
+    z-index: 10;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .linha-2 {
+    position: relative;
+    display: flex;
+    gap: 7px;
+    z-index: 9;
+    margin-top: 37px;
+    height: 23px;
+    align-items: flex-start;
+  }
+
+  .container-linhas2 {  /* contem caixa-eq, caixa-greek,caixa-symbol10,caixa-symbol6,caixa-symbol5,caixa-symbol111 */
+    display: grid;
+    grid-template-rows: auto auto; /* duas linhas */
+    row-gap: 5px; /* espaço entre as linhas */
+    width: 252px; /* largura fixa */
+    position: relative;
+  }
+
+  .linha2-1 {
+    /* centralizar a caixa-eq */
+    position: absolute;
+    display: flex;
+    z-index: 10;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .linha2-2 {
+    position: relative;
+    display: flex;
+    gap: 7px;
+    z-index: 9;
+    margin-top: 37px;
+    height: 23px;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .container-symbols {  /*  tem outras caixas á direita*/
+    display: grid;
+    grid-template-rows: auto auto; /* duas linhas */
+    row-gap: 5px; /* espaço entre as linhas */
+    width:fit-content; /* largura fixa */
+    position: relative;
+  }
+
+  .linha3-1 {
+    position: absolute;
+    display: flex;
+    gap: 5px;
+    z-index: 10;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .linha3-2 {
+    position: relative;
+    display: flex;
+    gap: 5px;
+    z-index: 9;
+    margin-top: 37px;
+    height: 23px;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .container-caixa {  /*  caixa12*/
+    display: grid;
+    grid-template-rows: auto; /* uma linhas */
+    row-gap: 5px; /* espaço entre as linhas */
+    width:fit-content; /* largura fixa */
+    position: relative;
+  }
+  .linha4 {
+    position: absolute;
+    display: flex;
+    gap: 5px;
+    z-index: 10;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .container-header {  
+    display: grid;
+    grid-template-rows: auto; /* uma linhas */
+    width: auto; /* largura fixa */
+    position: relative;
+  }
+  .linha5 {
+    position: absolute;
+    display: flex;
+    gap: 5px;
+    z-index: 10;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .header-box {
+    position: relative;
+    top: 5px;
+    height: 18px;
+    bottom: -10px;
+    left: 5px;
+    width: auto;
+    display: flex; /* flex para centralizar */
+    align-items: center; /* vertical */
+    justify-content: center; /* horizontal */
+    
+    background-color: #34495e;
+    color: white;
+    padding: 1rem 1rem;
+    border-radius: 6px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+  .header-box2 {
+      position: relative;
+      top: 0px;
+      height: 28px;
+      bottom: -10px;
+      left: -0px;
+      width: 100vw;
+      display: flex; /* flex para centralizar */
+      align-items: center; /* vertical */
+      justify-content: center; /* horizontal */
+      
+      background-color: #6c8dada9;
+      color: rgba(255, 255, 255, 0);
+      padding: 1rem 1rem;
+      border-radius: 6px;
+      font-weight: bold;
+      white-space: nowrap;
+      z-index: 9;
+  }
+
+  .btns_dark_light {
+    position: relative;
+    top: 16px;
+    height: 28px;
+    left: 5px;
+    width: 100px;
+    display: flex; /* flex para centralizar */
+    align-items: center; /* vertical */
+    justify-content: center; /* horizontal */
+    background-color: #f8f8f800;
+    color: rgba(255, 255, 255, 0.884);
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 12px; 
+    user-select: none;         
+     cursor: pointer; 
+    white-space: nowrap;
+    z-index: 12;
+}
+
+  /* torna svg's em botoes*/
+  .svg-btn {
+    cursor: pointer;
+    transition: all 0.1s ease;
+    display: block;
+    pointer-events: auto; /* Garante cliques */
+  }
+  
+  .svg-btn:hover {
+      /*opacity: 0.7;*/
+      transform: scale(1.05);
+  }
+
+  .svg-btn:active {
+      transform: scale(0.95);
+  }
+ /* svg caixa 12 */
+  .svg-btn12 {
+    cursor: pointer;
+    transition: all 0.1s ease;
+    display: block;
+    pointer-events: auto; /* Garante cliques */
+  }
+  
+  .svg-btn12:hover {
+      /*opacity: 0.7;*/
+      transform: scale(1.05);
+  }
+
+  .svg-btn12:active {
+      transform: scale(0.95);
+  }
+
+
+/* Modal */
+.matrix-modal {
+    display: none;         /* escondido por padrão */
+    opacity: 0;
+    max-width: 350px;
+    position: absolute;
+    left: 230px;
+    top: 40px;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 24px #0003;
+    padding: 18px 20px;
+    transition: opacity 0.4s;
+    z-index: 10001;
+
+    /* centralizar tudo dentro do modal */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .matrix-modal.show {
+    display: flex;   /* mantém o flex ao mostrar */
+    opacity: 1;
+  }
+
+  .matrixCellSelection {
+    display: grid;
+    grid-template-columns: repeat(8, 28px);
+    grid-template-rows: repeat(8, 28px);
+    gap: 2px;
+    margin-bottom: 15px;
+
+    /* centra a grelha */
+    justify-content: center;
+  }
+
+  .matrix-cell {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #ccc;
+    background: #eee;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+
+  .matrix-cell.active,
+  .matrix-cell.hover {
+    background: orange;
+    border-color: #f93;
+  }
+
+  .cc_manualSelection {
+    display: flex;
+    flex-direction: column;   /* inputs numa linha, botões em outra */
+    align-items: center;
+    gap: 12px;                /* espaço entre linha dos inputs e dos botões */
+  }
+
+  .cc_manualSelection .inputs-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;                /* espaço entre "Rows" e "Columns" */
+  }
+
+  .cc_manualSelection .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;                /* espaço entre os botões */
+  }
+
+  .cc_manualSelection label,
+  .cc_manualSelection input {
+    margin: 0 5px;
+  }
+
+  .cc_manualSelection button {
+    margin-top: 10px;
+    min-width: 80px;
+  }
+
+  .matrixCellSelection.vertical-grid {
+    display: grid;
+    grid-template-columns: 1fr;    
+    grid-template-rows: repeat(8, 28px); 
+    gap: 2px;
+  }
+  .cc_manualSelection input[type="number"] {
+    color: black;           /* texto preto */
+    font-size: 14px;        /* tamanho uniforme */
+    font-family: inherit;   /* usa mesma fonte do resto da página */
+    padding: 4px 6px;       /* controle de padding */
+    border: 1px solid #ccc;
+    background: #fff;
+    box-sizing: border-box; /* evita quebra de layout */
+}
+
+.cc_manualSelection label {
+    color: black;
+    font-size: 14px;        /* mesma altura que os inputs */
+    font-family: inherit;
+}
