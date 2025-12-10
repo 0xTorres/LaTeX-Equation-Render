@@ -89,7 +89,6 @@ Texto em vermelho com LaTeX:
 ```latex
 /c{rgb(255, 140, 0)}{$\texttt{Font: Text Typewriter}$}
 ```
-
 Result:  
 </span><img src="images/equation_5.svg" alt="Equação5" heigth="200px">
 
@@ -105,6 +104,7 @@ Maxwell’s Equations:
 \vec{\nabla} \times \vec{B} & = \mu_0\left( \epsilon_0 \frac{\partial \vec{E}}{\partial t} + \vec{J} \right) &&\text{Ampere's Law}
 \end{align}
 ```
+Result: 
 
 </span><img src="images/equation_7.svg" alt="Equação7" heigth="500px">
 
@@ -113,12 +113,14 @@ Maxwell’s Equations:
 ```latex
 \ce{K = \frac{[\ce{Hg^2+}][\ce{Hg}]}{[\ce{Hg2^2+}]}}
 ```
+Result: 
 
 </span><img src="images/equation_8.svg" alt="Equação8" heigth="300px">
 
 ```latex
 \ce{Zn^2+ <=>[+ 2OH-][+ 2H+] \underset{\text{amphoteres Hydroxid}}{\ce{Zn(OH)2 v}} <=>[+ 2OH-][+ 2H+] \underset{\text{Hydroxozikat}}{\ce{[Zn(OH)4]^2-}}}
 ```
+Result: 
 
 </span><img src="images/equation_9.svg" alt="Equação9" heigth="400px">
 
