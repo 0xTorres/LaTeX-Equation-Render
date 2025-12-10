@@ -21,6 +21,8 @@ This project was developed as a didactic tool where the user can **write, color 
 
 You can also generate pages and save them as an **.html** file.
 
+[Click Here to Test it !!!](https://0xtorres.github.io/LaTeX-Equation-Render/)
+
 ***
 
 ## 📸 Screenshot
